@@ -41,4 +41,22 @@ An initial install attempt inside a network-restricted runner failed fetching `h
 
 `docs/PUBLICATION_CANDIDATES.json` is the explicit public allowlist. Every exported file is reviewed; binary screenshots are visually inspected. `scripts/check_public_release.py` scans all allowlisted bytes and, with `--history`, all reachable blobs/commits/tags plus exact tracked-file membership. The checks supplement review; they are not a mathematical guarantee that arbitrary secrets cannot exist. Third-party author/copyright notices are retained.
 
-The public repository uses a fresh lineage. Private working commits, account identity output, OAuth data, model traces and internal Chinese handoffs are excluded. Source provenance remains in the README and manifest. A published-clone verification checkpoint will be recorded after the first public push.
+The public repository uses a fresh lineage. Private working commits, account identity output, OAuth data, model traces and internal Chinese handoffs are excluded. Source provenance remains in the README and manifest. The public repository was created and verified as PUBLIC at https://github.com/hansonxdxd/prizehunter-aws .
+
+## Published-clone verification
+
+A fresh `git clone https://github.com/hansonxdxd/prizehunter-aws.git` resolved to `d9b75ea6c2f97a89ee78056e4ddc8e6eb15307ab`, exactly matching the reviewed public candidate. A new virtual environment was created from the lockfile. Commands:
+
+```sh
+uv sync --frozen --python 3.12
+uv run --offline --no-sync pytest -ra
+uv run --offline --no-sync ruff check src scripts tests/test_slice.py tests/test_web.py
+uv run --offline --no-sync python scripts/verify_manifest.py
+uv run --offline --no-sync prizehunter demo --output local-state/demo.json
+```
+
+Results: **67 passed, 1 skipped** (3.89 seconds); lint passed; all 21 pinned hashes matched. The CLI returned `offline_synthetic_replay`, `uncertain`, `verify_first`, `verification_first`, with four model calls.
+
+A temporary HTTP server was then started from that fresh clone on port 8091. `/health` reported `ok` and disabled paid browser calls; `/api/result` returned the replay analysis; `/api/watch` returned counts **1, 0, 1, 0, 0** and preserved the last good baseline on failure. Both AWS application and Core imports resolved inside the new clone. The temporary server was stopped after verification.
+
+The following publication checkpoint adds only this verification record; application source and lockfile remain the tested versions. Initial public history scan covered **69 tracked files and 68 unique reachable content/commit objects**, with no findings.
