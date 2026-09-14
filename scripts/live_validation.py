@@ -23,14 +23,36 @@ RATES = {"amazon.nova-lite-v1:0": (0.06, 0.24), "us.amazon.nova-lite-v1:0": (0.0
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="us.amazon.nova-lite-v1:0", choices=sorted(RATES))
+    parser.add_argument("--model", default="amazon.nova-lite-v1:0", choices=sorted(RATES))
+    parser.add_argument(
+        "--cross-region-verified",
+        action="store_true",
+        help="Operator has independently verified geographic inference support for this account",
+    )
     parser.add_argument("--region", default="us-east-1")
+    parser.add_argument(
+        "--account-verification-changed",
+        action="store_true",
+        help="Operator confirms the account verification blocker has changed before retrying",
+    )
     parser.add_argument("--output-dir", default="local-evidence/sprint-02")
     args = parser.parse_args()
+    if args.model.startswith("us.") and not args.cross_region_verified:
+        parser.error(
+            "Geographic cross-region inference needs verified account support; use amazon.nova-lite-v1:0 first"
+        )
     output = Path(args.output_dir)
     output.mkdir(parents=True, exist_ok=True)
     ledger_path = output / "live-attempt-ledger.json"
     ledger = json.loads(ledger_path.read_text()) if ledger_path.exists() else []
+    if (
+        ledger
+        and ledger[-1].get("error_type") == "AccessDeniedException"
+        and not args.account_verification_changed
+    ):
+        parser.error(
+            "Previous access-denied blocker is unresolved; retry only after account verification changes"
+        )
     if len(ledger) >= 3:
         raise SystemExit("Three-attempt sprint cap reached; inspect failures before any further spending.")
     os.environ["AWS_EC2_METADATA_DISABLED"] = "true"

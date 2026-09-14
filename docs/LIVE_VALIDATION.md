@@ -24,14 +24,14 @@ The official rules connector separately retrieved the real [Agents for Humans pa
 
 1. Install current AWS CLI v2 and configure your approved named profile through browser login. The [official Agent Toolkit setup](https://raw.githubusercontent.com/aws/agent-toolkit-for-aws/refs/heads/main/setup-instructions/setup.md) uses `aws login`; credentials must not be pasted into chat or committed.
 2. Verify identity with `aws sts get-caller-identity --profile YOUR_APPROVED_PROFILE`. Keep account-specific outputs private. Confirm your account allows the selected Bedrock model and region.
-3. Set `AWS_PROFILE` locally, then run the bounded script once. The script verifies STS identity, sets the paid gate for this one process and uses real source retrieval. No replay fallback exists.
+3. Wait for an actual account-verification status change; do not retry during the waiting window. Then set `AWS_PROFILE` locally and run the bounded script once using in-region Nova Lite in `us-east-1`. The script verifies STS identity, sets the paid gate for this one process and uses real source retrieval. No replay fallback exists.
 
 ```sh
 export AWS_PROFILE=YOUR_APPROVED_PROFILE
-uv run --no-sync python scripts/live_validation.py --region us-east-1 --model us.amazon.nova-lite-v1:0
+uv run --no-sync python scripts/live_validation.py --region us-east-1 --model amazon.nova-lite-v1:0 --account-verification-changed
 ```
 
-The attempted model has **not completed successful inference**. [Amazon's Nova Lite model card](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html) documents the model; the model catalog was verified but inference was denied pending account verification. The initial price estimate uses Nova Lite on-demand $0.06 input / $0.24 output per million tokens, from [AWS's cost optimization guidance](https://aws.amazon.com/blogs/machine-learning/effective-cost-optimization-strategies-for-amazon-bedrock/). Recheck pricing before an independent run.
+The previous geographic-profile attempt has **not completed successful inference**. The next default is `amazon.nova-lite-v1:0`; do not use `us.amazon.nova-lite-v1:0` on the Free plan unless support is verified. The harness rejects geographic profiles without `--cross-region-verified`, and rejects a retry after a ledger-recorded AccessDenied without `--account-verification-changed`. These flags attest to external checks; they do not establish model/account availability. No AWS calls were made during Profile restoration. [Amazon's Nova Lite model card](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html) documents the model; the model catalog was verified but inference was denied pending account verification. The initial price estimate uses Nova Lite on-demand $0.06 input / $0.24 output per million tokens, from [AWS's cost optimization guidance](https://aws.amazon.com/blogs/machine-learning/effective-cost-optimization-strategies-for-amazon-bedrock/). Recheck pricing before an independent run.
 
 The harness caps the sprint ledger at three attempts and each analysis at eight model calls. Strands requests have six-turn, 60,000-token and 16,000-output-token invocation ceilings, with 90-second invocation and 180-second overall call-budget checks. Each model response is capped at 4,096 tokens. Tool/source limits remain active. Costs are estimates; interrupted calls may not report all usage.
 

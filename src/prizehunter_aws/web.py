@@ -9,8 +9,11 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from pydantic import ValidationError
+
 from .demo import NOW, replay_runtime, scenario
-from .pipeline import run_analysis
+from .pipeline import run_analysis, unavailable_decision
+from .profile_form import form_options, goal_from_form
 from .watch import run_once
 
 ASSETS = Path(__file__).parent / "assets"
@@ -77,6 +80,26 @@ def watch_step(action, state_root):
 
 
 def dispatch(method, path, body, state_root):
+    if method == "GET" and path == "/api/example-result":
+        result = copy.deepcopy(demo_result())
+        result["display_mode"] = "OFFLINE VERIFIED — saved synthetic example"
+        return 200, "application/json", json.dumps(result).encode()
+    if method == "GET" and path == "/api/profile-options":
+        return 200, "application/json", json.dumps(form_options()).encode()
+    if method == "GET" and path == "/api/example-profile":
+        return 200, "application/json", scenario()[0].model_dump_json().encode()
+    if method == "POST" and path == "/api/profile-analysis":
+        goal = goal_from_form(json.loads(body))
+        _, bundle, drafts = scenario()
+        result = run_analysis(
+            goal,
+            [str(bundle.seed_url)],
+            replay_runtime(bundle, drafts),
+            now=NOW,
+            decision_generator=unavailable_decision,
+        )
+        result["display_mode"] = "YOUR PROFILE / SYNTHETIC EVIDENCE"
+        return 200, "application/json", json.dumps(result).encode()
     if method == "GET" and path == "/health":
         return 200, "application/json", json.dumps({"status": "ok", "paid_browser_calls": False}).encode()
     if method == "GET" and path in {"/", "/architecture.svg"}:
@@ -103,10 +126,19 @@ def serve(host="127.0.0.1", port=8080):
         def handle_request(self):
             try:
                 size = int(self.headers.get("Content-Length", "0"))
-                if size < 0 or size > 2048:
+                if size < 0 or size > 16384:
                     raise ValueError("Request body exceeds demo limit")
                 path = urlsplit(self.path).path
                 status, content_type, data = dispatch(self.command, path, self.rfile.read(size), state_root)
+            except ValidationError as exc:
+                fields = [".".join(str(x) for x in error["loc"]) for error in exc.errors(include_input=False)]
+                status, content_type, data = (
+                    400,
+                    "application/json",
+                    json.dumps(
+                        {"error": "Check invalid or conflicting profile fields: " + ", ".join(fields)}
+                    ).encode(),
+                )
             except (ValueError, KeyError, TypeError):
                 status, content_type, data = 400, "application/json", b'{"error":"Invalid demo request"}'
             except Exception:  # noqa: BLE001 -- never expose filesystem paths or internals to browsers.

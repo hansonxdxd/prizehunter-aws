@@ -12,6 +12,7 @@ Finding an opportunity is easy. Knowing whether you qualify—and whether it des
 
 ## What it does
 
+- Accepts a progressively disclosed profile mapped to the existing Core contracts; unknown facts stay unknown.
 - Reads a supplied competition source through bounded retrieval, or uses an explicitly labeled saved evidence bundle.
 - Requires literal source excerpts and preserves provenance, retrieval failures, rejected claims and uncertainty.
 - Applies the existing provider-neutral Core to Eligibility → Fit → Recommendation → Action Plan.
@@ -56,9 +57,11 @@ The pinned Core is included under `packages/core`. Installation does not access 
 uv run --no-sync python -m prizehunter_aws.web --port 8080
 ```
 
-Open **http://127.0.0.1:8080/**. Click **Run verified test build**. Expect `uncertain`, `verify first`, a verification action and four scripted model calls through Strands. **Try synthetic hard blocker** uses a synthetic Taiwan profile against a fictitious Canada-only rule; it returns an ineligible decision and skips Fit/Planner inference (two model calls). Neither profile represents the author's identity.
+Open **http://127.0.0.1:8080/**. Click **Run saved synthetic example**. Expect `uncertain`, `verify first`, a verification action and four scripted model calls through Strands. **Try synthetic hard blocker** uses a synthetic Taiwan profile against a fictitious Canada-only rule; it returns an ineligible decision and skips Fit/Planner inference (two model calls). Neither profile represents the author's identity.
 
-The CLI exposes the same slice:
+For your own inputs, use **Check my profile against demo rules**. Essentials include residence, citizenship, legal adulthood, participant statuses, skills, technical capabilities, hours, interests and goals. Expand participation preferences for team, travel and reusable work; uncommon rule facts are under **Advanced Eligibility**. The validated profile and preferences actually reach Core eligibility and Fit inputs. Arbitrary personalized Fit/Plan are **unavailable offline**: only the saved example has scripted recommendations. Your custom profile is not persisted. See the [field mapping and limitations](docs/PROFILE.md).
+
+The CLI exposes the saved demonstration slice:
 
 ```sh
 uv run --no-sync prizehunter demo
@@ -78,22 +81,24 @@ In the browser, run the five numbered buttons in order:
 | Repeat changed state | 0 | Suppress duplicate change |
 | Simulate retrieval failure | 0 | Preserve last successful baseline |
 
-The baseline is currently synthetic because real Bedrock validation is unresolved. State lives in `local-state/web/judge-watch.json`; `PH_WEB_STATE_DIR` can select another local state directory. The reset button resets only this dedicated demo state. This is a sequential, single-goal test build; it is not a scheduler, notification service, shared-user database or global discovery system.
+Watch always uses its separate saved synthetic example, independently of your edited profile. The baseline is currently synthetic because real Bedrock validation is unresolved. State lives in `local-state/web/judge-watch.json`; `PH_WEB_STATE_DIR` can select another local state directory. The reset button resets only this dedicated demo state. This is a sequential, single-goal test build; it is not a scheduler, notification service, shared-user database or global discovery system.
 
 ## Tests and package build
 
 ```sh
 uv run --no-sync pytest -ra
-uv run --no-sync ruff check src scripts tests/test_slice.py tests/test_web.py
+uv run --no-sync ruff check src scripts tests/test_slice.py tests/test_web.py tests/test_profile_form.py
 uv build
 uv build packages/core
 ```
 
-Latest offline suite: **67 passed, 1 skipped**. The skip is a paid Bedrock live test. See [verification](docs/VERIFICATION.md) for exact release commands and results.
+Latest offline suite: **90 passed, 1 skipped**. The skip is a paid Bedrock live test. See [verification](docs/VERIFICATION.md) for exact release commands and results.
 
 ## AWS prerequisites and live validation
 
 The actual attempted model is Amazon Nova Lite via `us.amazon.nova-lite-v1:0` in `us-east-1`. Its catalog entry is active and streaming-capable. The first Strands `ConverseStream` request was denied with **account verification pending**; successful model inference has **not** been established. Follow [live validation](docs/LIVE_VALIDATION.md) after securely configuring AWS login and granting the needed account permissions.
+
+Do not retry while account verification is pending. Once its status changes, the bounded harness defaults to **in-region `amazon.nova-lite-v1:0` in `us-east-1`**. Geographic `us.amazon.nova-lite-v1:0` requires separate verified support; the previous failed attempt is historical evidence, not the next default. No additional Bedrock request was made during the Profile restoration.
 
 Environment variable examples contain placeholders only:
 

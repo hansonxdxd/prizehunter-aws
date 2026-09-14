@@ -16,6 +16,16 @@ from .retrieval import canonical_url, origin, verify_bundle
 from .runtime import ReplayModel
 
 
+class OfflineDecisionUnavailable(RuntimeError):
+    """The operator has no inference provider for arbitrary profile preferences."""
+
+
+def unavailable_decision(prompt, schema):
+    raise OfflineDecisionUnavailable(
+        "Personalized Fit and planning require live inference; saved drafts are not personalized."
+    )
+
+
 def validate_record(record, bundle):
     """Reject ungrounded transport facts before any legacy fallback sees them."""
     successful = [s for s in bundle.sources if s.extraction_status.value == "success"]
@@ -79,7 +89,7 @@ def research_prompt(goal, urls):
     )
 
 
-def run_analysis(goal, urls, runtime, *, now=None):
+def run_analysis(goal, urls, runtime, *, now=None, decision_generator=None):
     now = now or datetime.now(UTC)
     if now.tzinfo is None:
         raise ValueError("Analysis time must have a timezone")
@@ -133,18 +143,28 @@ def run_analysis(goal, urls, runtime, *, now=None):
         "profile": goal.profile,
         "preferences": goal.preferences,
         "generated_at": now,
-        "generator": runtime.generate,
+        "generator": decision_generator or runtime.generate,
         "model": runtime.model_id,
     }
-    fit, _ = evaluate_fit(**arguments)
+    decision_limitation = None
+    try:
+        fit, _ = evaluate_fit(**arguments)
+    except OfflineDecisionUnavailable as exc:
+        fit = None
+        decision_limitation = str(exc)
     conflicts = [
         f.field_path
         for f in claims.intelligence.resolved_fields
         if f.resolution_status is ResolutionStatus.UNRESOLVED_CONFLICT
     ]
-    plan, _ = plan_actions(
-        **arguments, fit=fit, model_uncertainties=claims.model_uncertainties, unresolved_conflicts=conflicts
-    )
+    plan = None
+    if fit is not None:
+        plan, _ = plan_actions(
+            **arguments,
+            fit=fit,
+            model_uncertainties=claims.model_uncertainties,
+            unresolved_conflicts=conflicts,
+        )
     return {
         "mode": "offline_synthetic_replay" if isinstance(runtime.model, ReplayModel) else "live_bedrock",
         "competition_id": competition_id,
@@ -153,8 +173,9 @@ def run_analysis(goal, urls, runtime, *, now=None):
         "evidence": bundle.model_dump(mode="json"),
         "claims": claims.model_dump(mode="json"),
         "eligibility": assessment.model_dump(mode="json"),
-        "fit": fit.model_dump(mode="json"),
-        "plan": plan.model_dump(mode="json"),
+        "fit": fit.model_dump(mode="json") if fit is not None else None,
+        "plan": plan.model_dump(mode="json") if plan is not None else None,
+        "decision_limitation": decision_limitation,
         "execution": {
             "agent_instances": 1,
             "model_calls": runtime.budget.calls,

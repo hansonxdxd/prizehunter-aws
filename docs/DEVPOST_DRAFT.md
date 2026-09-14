@@ -10,6 +10,8 @@ Finding a competition is easy. Understanding its rules, checking whether you qua
 
 PrizeHunter turns competition evidence into eligibility, Fit, recommendation and a human-reviewed Action Plan. Literal claims retain source support, uncertainty remains visible and confirmed blockers stop downstream inference. Opportunity Watch saves a goal's state, suppresses repeated decisions and detects controlled rule/deadline changes while preserving the last successful baseline after retrieval failure. It does not send notifications or run a scheduler.
 
+The browser accepts residence, citizenship, participant facts and Fit preferences through progressive disclosure into the existing Core contracts. Blank facts remain unknown. Custom-profile eligibility is checked against synthetic evidence, while arbitrary personalized Fit and Plan are explicitly unavailable offline. The original scripted demo remains a one-click saved example.
+
 ## How we built it
 
 We connected one Strands agent to bounded evidence tools and the existing provider-neutral PrizeHunter Core. The agent produces schema-constrained drafts; deterministic Core guards validate evidence, eligibility and final decisions. The AWS Edition adds a gated Bedrock adapter, HTTP/PDF retrieval controls, local JSON Watch state and a compact Python browser test build. Current verification uses Strands with scripted model responses. No real Bedrock request or AWS deployment has succeeded yet because AWS account verification is pending, despite successful temporary login and STS identity verification.
@@ -20,7 +22,7 @@ Strict typed schemas must survive the SDK tool boundary without weakening Core's
 
 ## Accomplishments
 
-The test build runs a real Strands tool loop, preserves the reused Core byte-for-byte, blocks downstream inference on a synthetic hard blocker and demonstrates Watch counts of 1, 0, 1, 0, 0 across first, duplicate, controlled change, repeat and failed retrieval. The offline suite passes 67 tests with one paid live test skipped. Source provenance, setup, tests and limitations are available in the public repository.
+The test build runs a real Strands tool loop, preserves the reused Core byte-for-byte, blocks downstream inference on a synthetic hard blocker and demonstrates Watch counts of 1, 0, 1, 0, 0 across first, duplicate, controlled change, repeat and failed retrieval. The offline suite passes 90 tests with one paid live test skipped. Source provenance, setup, tests and limitations are available in the public repository.
 
 ## What we learned
 

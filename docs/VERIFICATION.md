@@ -1,6 +1,22 @@
 # Verification record — 2026-09-14
 
-## Verified release candidate
+## Profile restoration checkpoint
+
+The browser now accepts the user's profile through the existing Core contracts. The restored essentials and expandable participation/Advanced Eligibility form has no second domain schema. **90 passed, 1 skipped** (0.99 seconds) in the working checkout; lint and all 21 pinned Core hashes passed. AWS and Core wheel/source distributions built; archive inspection confirmed licenses, the new profile transport module in AWS packages, and no private caches, state, evidence or handoffs.
+
+```sh
+uv run --offline --no-sync pytest -q
+uv run --offline --no-sync ruff check src scripts tests/test_slice.py tests/test_web.py tests/test_profile_form.py
+uv run --offline --no-sync python scripts/verify_manifest.py
+uv build --offline
+uv build packages/core --offline
+```
+
+Actual browser checks verified blank → unknown, false/zero preservation, custom preferences reaching Core, edited-result invalidation, residence-driven hard blockers, and the one-click saved example. Custom nonblocked profiles have null Fit/Plan and two research replay calls; the saved synthetic example retains four calls. The independent Watch walkthrough returned 1, 0, 1, 0, 0. No browser console errors/warnings appeared. Exactly five screenshots were refreshed from the working application.
+
+**No AWS requests were made during Profile restoration.** The ledger remains at one historical denied request. The next default is in-region `amazon.nova-lite-v1:0` in `us-east-1`, after an actual account-verification change. Unit tests use mocks to verify the model default and pre-credential retry/cross-region guards; they do not establish AWS availability.
+
+## Previous release candidate (before Profile restoration)
 
 A separate directory was created using `scripts/export_public.py` and the reviewed allowlist. Its virtual environment was created from scratch. Installation uses the included `packages/core`; neither private reference checkout is required. Network access to PyPI was allowed for build dependencies; a local uv cache accelerated downloads but was not a source-code dependency.
 
@@ -43,7 +59,7 @@ An initial install attempt inside a network-restricted runner failed fetching `h
 
 The public repository uses a fresh lineage. Private working commits, account identity output, OAuth data, model traces and internal Chinese handoffs are excluded. Source provenance remains in the README and manifest. The public repository was created and verified as PUBLIC at https://github.com/hansonxdxd/prizehunter-aws .
 
-## Published-clone verification
+## Previous published-clone verification (before Profile restoration)
 
 A fresh `git clone https://github.com/hansonxdxd/prizehunter-aws.git` resolved to `d9b75ea6c2f97a89ee78056e4ddc8e6eb15307ab`, exactly matching the reviewed public candidate. A new virtual environment was created from the lockfile. Commands:
 

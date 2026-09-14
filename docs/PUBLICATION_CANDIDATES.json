@@ -13,6 +13,7 @@
     "docs/DEVPOST_DRAFT.md",
     "docs/LIVE_VALIDATION.md",
     "docs/PRIOR_WORK.md",
+    "docs/PROFILE.md",
     "docs/PUBLICATION_CANDIDATES.json",
     "docs/SCREENSHOTS.md",
     "docs/THIRD_PARTY_INVENTORY.json",
@@ -57,6 +58,7 @@
     "src/prizehunter_aws/contracts.py",
     "src/prizehunter_aws/demo.py",
     "src/prizehunter_aws/pipeline.py",
+    "src/prizehunter_aws/profile_form.py",
     "src/prizehunter_aws/retrieval.py",
     "src/prizehunter_aws/retrieval_worker.py",
     "src/prizehunter_aws/runtime.py",
@@ -68,6 +70,7 @@
     "tests/core/test_foundation.py",
     "tests/fixtures/claim_conflicts.json",
     "tests/fixtures/google_contract_replay.json",
+    "tests/test_profile_form.py",
     "tests/test_slice.py",
     "tests/test_web.py",
     "uv.lock"
