@@ -1,0 +1,217 @@
+{
+  "research": {
+    "record": {
+      "competition_name": "SYNTHETIC Opportunity Watch Challenge",
+      "source_url": "https://example.com/synthetic-rules",
+      "deadline": "2099-09-14T17:00:00-07:00",
+      "geographic_restrictions": [
+        "Open only to legal residents of Canada."
+      ],
+      "submission_requirements": [
+        "Build a working prototype and submit a demo video."
+      ],
+      "source_evidence": [
+        {
+          "field": "competition_name",
+          "excerpt": "SYNTHETIC Opportunity Watch Challenge"
+        },
+        {
+          "field": "geographic_restrictions",
+          "excerpt": "Open only to legal residents of Canada."
+        },
+        {
+          "field": "submission_requirements",
+          "excerpt": "Build a working prototype and submit a demo video."
+        },
+        {
+          "field": "deadline",
+          "excerpt": "Submission deadline: 2099-09-14T17:00:00-07:00."
+        }
+      ],
+      "uncertainties": [
+        {
+          "field": "eligibility",
+          "reason": "Other eligibility requirements are unknown in this synthetic evidence."
+        }
+      ]
+    },
+    "claims": {
+      "claims": [
+        {
+          "field_path": "/eligibility/residence",
+          "value_json": "{\"mode\": \"allowed_countries\", \"allowed_countries\": [\"Canada\"]}",
+          "source_id": "src_1ab279cbf564",
+          "evidence_text": "Open only to legal residents of Canada.",
+          "confidence": 0.99
+        }
+      ],
+      "uncertainties": [
+        "Age, team, and other requirements need verification."
+      ]
+    }
+  },
+  "fit": {
+    "recommendation": "go",
+    "overall_score": 60,
+    "confidence": 0.5,
+    "dimensions": {
+      "skill_capability": {
+        "rating": "medium",
+        "score": 60,
+        "explanation": "Synthetic replay rating, not model quality evidence.",
+        "confidence": 0.5,
+        "competition_evidence": [
+          {
+            "source_id": "src_1ab279cbf564",
+            "excerpt": "Build a working prototype and submit a demo video."
+          }
+        ],
+        "input_refs": [
+          "preferences_goals"
+        ]
+      },
+      "build_feasibility": {
+        "rating": "medium",
+        "score": 60,
+        "explanation": "Synthetic replay rating, not model quality evidence.",
+        "confidence": 0.5,
+        "competition_evidence": [
+          {
+            "source_id": "src_1ab279cbf564",
+            "excerpt": "Build a working prototype and submit a demo video."
+          }
+        ],
+        "input_refs": [
+          "preferences_goals"
+        ]
+      },
+      "time_effort": {
+        "rating": "medium",
+        "score": 60,
+        "explanation": "Synthetic replay rating, not model quality evidence.",
+        "confidence": 0.5,
+        "competition_evidence": [
+          {
+            "source_id": "src_1ab279cbf564",
+            "excerpt": "Build a working prototype and submit a demo video."
+          }
+        ],
+        "input_refs": [
+          "preferences_goals"
+        ]
+      },
+      "reward_attractiveness": {
+        "rating": "medium",
+        "score": 60,
+        "explanation": "Synthetic replay rating, not model quality evidence.",
+        "confidence": 0.5,
+        "competition_evidence": [
+          {
+            "source_id": "src_1ab279cbf564",
+            "excerpt": "Build a working prototype and submit a demo video."
+          }
+        ],
+        "input_refs": [
+          "preferences_goals"
+        ]
+      },
+      "participation_burden": {
+        "rating": "medium",
+        "score": 60,
+        "explanation": "Synthetic replay rating, not model quality evidence.",
+        "confidence": 0.5,
+        "competition_evidence": [
+          {
+            "source_id": "src_1ab279cbf564",
+            "excerpt": "Build a working prototype and submit a demo video."
+          }
+        ],
+        "input_refs": [
+          "preferences_goals"
+        ]
+      },
+      "strategic_interest": {
+        "rating": "medium",
+        "score": 60,
+        "explanation": "Synthetic replay rating, not model quality evidence.",
+        "confidence": 0.5,
+        "competition_evidence": [
+          {
+            "source_id": "src_1ab279cbf564",
+            "excerpt": "Build a working prototype and submit a demo video."
+          }
+        ],
+        "input_refs": [
+          "preferences_goals"
+        ]
+      }
+    },
+    "effort_estimate": {
+      "level": "medium",
+      "minimum_hours": 4.0,
+      "maximum_hours": 8.0,
+      "confidence": 0.5,
+      "drivers": [
+        "Synthetic prototype exercise"
+      ],
+      "competition_evidence": [
+        {
+          "source_id": "src_1ab279cbf564",
+          "excerpt": "Build a working prototype and submit a demo video."
+        }
+      ],
+      "input_refs": [
+        "preferences_available_hours"
+      ]
+    },
+    "why": [
+      {
+        "text": "Synthetic portfolio exercise.",
+        "competition_evidence": [
+          {
+            "source_id": "src_1ab279cbf564",
+            "excerpt": "Build a working prototype and submit a demo video."
+          }
+        ],
+        "input_refs": [
+          "preferences_goals"
+        ]
+      }
+    ],
+    "uncertainties": [
+      "Synthetic model output only"
+    ]
+  },
+  "plan": {
+    "objective": "Verify requirements before deciding whether to prepare a submission.",
+    "actions": [
+      {
+        "id": "action_verify_rules",
+        "title": "Verify remaining eligibility rules",
+        "reason": "Eligibility remains uncertain.",
+        "kind": "verification",
+        "basis": "verification",
+        "priority": "high",
+        "effort": {
+          "minimum_hours": 0.25,
+          "maximum_hours": 1.0
+        },
+        "timing": "Before deciding",
+        "evidence": [],
+        "refs": [
+          "eligibility_uncertainties"
+        ],
+        "depends_on": [],
+        "human_confirmation": true,
+        "uncertainty": "Missing eligibility rules",
+        "confirm_at": "Ask the organizer using a verified official contact"
+      }
+    ],
+    "sequence": [
+      "action_verify_rules"
+    ],
+    "unresolved": [
+      "Verify unknown requirements; no message is sent automatically."
+    ]
+  }
+}

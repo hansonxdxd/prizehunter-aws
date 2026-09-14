@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "seed_url": "https://example.com/synthetic-rules",
+  "started_at": "2026-09-13T08:00:00Z",
+  "completed_at": "2026-09-13T08:00:00Z",
+  "sources": [
+    {
+      "source_id": "src_1ab279cbf564",
+      "source_url": "https://example.com/synthetic-rules",
+      "final_url": "https://example.com/synthetic-rules",
+      "source_type": "official_page",
+      "content_type": "html",
+      "authority_hint": "organizer_controlled",
+      "relation_to_seed": "seed",
+      "title": null,
+      "retrieved_at": "2026-09-13T08:00:00Z",
+      "extraction_status": "success",
+      "extracted_text": "SYNTHETIC Opportunity Watch Challenge\nOpen only to legal residents of Canada.\nBuild a working prototype and submit a demo video.\nSubmission deadline: 2099-09-14T17:00:00-07:00.",
+      "content_sha256": "63da95a49365e157e7951370d3628eee5e83609b4af40a870839d00a1b6fb111",
+      "discovered_from": null,
+      "metadata": {
+        "http_status": null,
+        "parser": null,
+        "depth": 0,
+        "page_count": null,
+        "links_discovered": 0,
+        "duplicate_of": null,
+        "retrieval_method": "offline-synthetic-v1",
+        "retrieval_status": null,
+        "citation_url": null,
+        "classification_confidence": null,
+        "warnings": [
+          "Synthetic fixture, not a real competition"
+        ]
+      }
+    }
+  ],
+  "retrieval_traces": []
+}

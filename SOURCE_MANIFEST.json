@@ -1,0 +1,114 @@
+{
+  "source_project": "PrizeHunter_NEXT",
+  "source_commit": "f269f7f3af4cf61f79771d63bcf3af0acf356955",
+  "last_verified_implementation_commit": "1e79cc177c7dc451fdb0206ed6b428ad9b3b89cf",
+  "exported_at": "2026-09-13",
+  "license_status": "Author-owned export is MIT licensed in this AWS distribution by explicit authorization on 2026-09-14. Original private source projects remain unchanged; third-party licenses retain their own terms.",
+  "files": [
+    {
+      "source_path": "packages/core/README.md",
+      "export_path": "packages/core/README.md",
+      "sha256": "d1a3ae2d535fa1087710841e9194d8f54ffd8c5d4d6b1db92143eb16b3aa2c37"
+    },
+    {
+      "source_path": "packages/core/pyproject.toml",
+      "export_path": "packages/core/pyproject.toml",
+      "sha256": "a9aa97844c73b4a20487b3d534b7ffe52fd67b14fd77fc0b02ff69a5e865fd41"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/__init__.py",
+      "export_path": "packages/core/src/prizehunter_core/__init__.py",
+      "sha256": "3b36e0d4f86fc3f8a8cff3c831f660b293257b6858d99397779b97c315120fee"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/action_planner.py",
+      "export_path": "packages/core/src/prizehunter_core/action_planner.py",
+      "sha256": "ed15d1ae97fcbe594d2f417cbe0b51fc57196150bf521028f28061fb662a4ff2"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/competition_intelligence.py",
+      "export_path": "packages/core/src/prizehunter_core/competition_intelligence.py",
+      "sha256": "0fd67b6b1516d710cdd1b2046475e206b865798ed2579ce9048ccfb8adb1b3ff"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/deadlines.py",
+      "export_path": "packages/core/src/prizehunter_core/deadlines.py",
+      "sha256": "aac81aad89604fa5cd96ec175e72686c8d8b7337806c2c9d14d5bc56211acf78"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/eligibility.py",
+      "export_path": "packages/core/src/prizehunter_core/eligibility.py",
+      "sha256": "ecba5561fb45974d5dd6895cc19a76d53a54e8a07dbc8071eaf075a1f276a890"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/eligibility_assessment.py",
+      "export_path": "packages/core/src/prizehunter_core/eligibility_assessment.py",
+      "sha256": "1ab73d327b609a13775461a6e22538216eb685acbfb9cc98367fcb44381ceaad"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/eligibility_assessment_v3.py",
+      "export_path": "packages/core/src/prizehunter_core/eligibility_assessment_v3.py",
+      "sha256": "6b573d32a5bb21cc7825b861c4af5fc03569f5ae9c664e12ff96c5cae9f66b6a"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/eligibility_claims.py",
+      "export_path": "packages/core/src/prizehunter_core/eligibility_claims.py",
+      "sha256": "e81beeade9a16ec29fb429a422c7bd141aa9cf5604024f8865744a87cd8c1516"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/evidence.py",
+      "export_path": "packages/core/src/prizehunter_core/evidence.py",
+      "sha256": "1bc18435a3030fcb4e2b40697173dbc9e5f16ac5c135ed9d89636ae6f429d3d4"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/evidence_formatting.py",
+      "export_path": "packages/core/src/prizehunter_core/evidence_formatting.py",
+      "sha256": "276068934d68fa9ba8ec346b05f242daddc716384a1cbb372b5df70e0c22340c"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/expanded_eligibility.py",
+      "export_path": "packages/core/src/prizehunter_core/expanded_eligibility.py",
+      "sha256": "c7e54cffbeb155a6147f8a53449d9bc08554369828e2da7b1931698d30cbb0dc"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/fit_evaluation.py",
+      "export_path": "packages/core/src/prizehunter_core/fit_evaluation.py",
+      "sha256": "61a0bc9e1887981fe94778027696fa855a407d2b7c1f4057a7541fa9d03f51e8"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/schemas.py",
+      "export_path": "packages/core/src/prizehunter_core/schemas.py",
+      "sha256": "f84b3e6fe971eca8465a6f339183fc6194ed392fe02cff1c91e8be451e622de5"
+    },
+    {
+      "source_path": "packages/core/src/prizehunter_core/user_profile.py",
+      "export_path": "packages/core/src/prizehunter_core/user_profile.py",
+      "sha256": "276c6142a0165bba5da6fb5cc4e0f95ca682f6122f65cc05e43ae1d3f0399c8e"
+    },
+    {
+      "source_path": "tests/core/test_decisions.py",
+      "export_path": "tests/core/test_decisions.py",
+      "sha256": "4ec7d40d0e6cd31c9a28d75d5340d2a39cf7af24289cc29a936a7a95bb5ff977"
+    },
+    {
+      "source_path": "tests/core/test_evidence_claims.py",
+      "export_path": "tests/core/test_evidence_claims.py",
+      "sha256": "46addf563e6c610c6387e0a962b74b78d89bc425b661ab487ea8dfbb3e164dae"
+    },
+    {
+      "source_path": "tests/core/test_foundation.py",
+      "export_path": "tests/core/test_foundation.py",
+      "sha256": "89b229b8fa77edcbcb0a1f8dd2047845b3022257eafae3540938e51f1c79b332"
+    },
+    {
+      "source_path": "tests/fixtures/google_contract_replay.json",
+      "export_path": "tests/fixtures/google_contract_replay.json",
+      "sha256": "f669aca7addf5d8ae2030641a67dfac62c1c4c8093985d3ea3aeaafa06a40dd1"
+    },
+    {
+      "source_path": "tests/fixtures/claim_conflicts.json",
+      "export_path": "tests/fixtures/claim_conflicts.json",
+      "sha256": "88fbf4929376aa7c145e4082820926ac680c8d4e491355c9c113d5647b4109c7"
+    }
+  ]
+}

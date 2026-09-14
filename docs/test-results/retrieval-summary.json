@@ -1,0 +1,49 @@
+[
+  {
+    "source_url": "https://bhuntr.com/tw/competitions/y5sf0shclq6c3yn1db",
+    "retrieved_at": "2026-09-13T08:09:06.280171Z",
+    "extraction_status": "dynamic_page",
+    "content_sha256": null,
+    "authority_hint": "unknown",
+    "metadata": {
+      "http_status": 200,
+      "parser": "beautifulsoup4",
+      "depth": 0,
+      "page_count": null,
+      "links_discovered": 0,
+      "duplicate_of": null,
+      "retrieval_method": "aws-public-http-v1",
+      "retrieval_status": null,
+      "citation_url": null,
+      "classification_confidence": null,
+      "warnings": [
+        "Thin/empty text; requires another approved official source",
+        "HTTP attempts: 2; max 12"
+      ]
+    },
+    "extracted_characters": 0
+  },
+  {
+    "source_url": "https://agentsforhumans.devpost.com/rules",
+    "retrieved_at": "2026-09-13T08:09:09.991157Z",
+    "extraction_status": "success",
+    "content_sha256": "d68dd713f4b4e5e627481f2b552621524f9d8c303f9f3fa644031bb451634390",
+    "authority_hint": "organizer_controlled",
+    "metadata": {
+      "http_status": 200,
+      "parser": "beautifulsoup4",
+      "depth": 0,
+      "page_count": null,
+      "links_discovered": 0,
+      "duplicate_of": null,
+      "retrieval_method": "aws-public-http-v1",
+      "retrieval_status": null,
+      "citation_url": null,
+      "classification_confidence": null,
+      "warnings": [
+        "HTTP attempts: 2; max 12"
+      ]
+    },
+    "extracted_characters": 36759
+  }
+]

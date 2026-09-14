@@ -1,0 +1,49 @@
+{
+  "goal_id": "synthetic-watch",
+  "description": "Find prototype opportunities and watch rule changes.",
+  "profile": {
+    "profile_id": "synthetic-canada",
+    "version": 1,
+    "country": "Canada",
+    "region": null,
+    "age": null,
+    "has_reached_age_of_majority": null,
+    "subject_to_us_sanctions_or_export_controls": null,
+    "citizenships": null,
+    "permanent_resident_countries": null,
+    "education_statuses": null,
+    "graduated_on": null,
+    "entrant_statuses": null,
+    "entity_profile": null,
+    "candidate_project": null,
+    "team_preference": "unknown",
+    "solo_preference": null,
+    "intended_team_size": null,
+    "skills": [
+      "Python"
+    ],
+    "technical_capability": [],
+    "available_time": {
+      "hours_per_week": null,
+      "total_hours_before_deadline": null
+    },
+    "willingness_to_learn_new_tech": "unknown",
+    "profile_uncertainties": []
+  },
+  "preferences": {
+    "preferences_id": "synthetic-preferences",
+    "version": 1,
+    "preferred_participation_modes": [],
+    "willingness_to_travel": null,
+    "maximum_travel_days": null,
+    "willingness_to_build_fresh": null,
+    "available_hours_before_deadline": 12.0,
+    "preferred_reward_types": [],
+    "interests": [],
+    "strategic_goals": [
+      "Build a portfolio prototype"
+    ],
+    "reusable_assets": [],
+    "preference_uncertainties": []
+  }
+}

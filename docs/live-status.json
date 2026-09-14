@@ -1,0 +1,24 @@
+{
+  "started_at": "2026-09-14T13:36:36.676891+00:00",
+  "model": "us.amazon.nova-lite-v1:0",
+  "region": "us-east-1",
+  "source_url": "https://agentsforhumans.devpost.com/rules",
+  "outcome": "BLOCKED_ACCOUNT_VERIFICATION",
+  "profile_type": "disclosed synthetic profile",
+  "error_type": "AccessDeniedException",
+  "latency_seconds": 2.058,
+  "usage": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "totalTokens": 0
+  },
+  "model_calls": 1,
+  "tools": [],
+  "estimated_model_cost_usd": 0.0,
+  "cost_note": "Token estimate, not billing data; interrupted calls may be missing.",
+  "live_analysis_verified": false,
+  "error_summary": "AWS rejected ConverseStream because the new account is currently being verified.",
+  "sts_verified": true,
+  "temporary_browser_login": true,
+  "cloud_resources_created": 0
+}

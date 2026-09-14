@@ -1,0 +1,17 @@
+.venv*/
+.cache/
+.tmp/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.env*
+local-state/
+docs/test-results/source-before.json
+docs/test-results/source-after.json
+docs/test-results/*probe*.json
+.DS_Store
+.publication/
+local-evidence/

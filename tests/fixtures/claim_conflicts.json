@@ -1,0 +1,246 @@
+{
+  "fixture_metadata": {
+    "phase": "Phase 2D-1",
+    "source_research": [
+      "research/competition_landscape/source_conflicts.md",
+      "research/competition_landscape/expanded_sample.json"
+    ],
+    "facts_modified_or_completed": false,
+    "created_without_model_call": true,
+    "observed_at": "2026-08-27"
+  },
+  "cases": {
+    "agentic_cinema_deadline": {
+      "expected_status": "unresolved_conflict",
+      "competition_intelligence": {
+        "schema_version": "1.0",
+        "competition_id": "agentic-cinema",
+        "competition_record_version": null,
+        "claims": [
+          {
+            "claim_id": "agentic-cinema.deadline.platform",
+            "field_path": "/deadline",
+            "value": "2026-09-09",
+            "normalized_value": "2026-09-09",
+            "source_url": "https://agentic-cinema.devpost.com/",
+            "source_type": "competition_platform",
+            "source_title": "Agentic Cinema competition platform",
+            "authority_class": "organizer_controlled_platform",
+            "observed_at": "2026-08-27T00:00:00Z",
+            "source_published_at": null,
+            "source_updated_at": null,
+            "evidence_text": "Official competition platform surfaced September 9.",
+            "evidence_locator": "research/competition_landscape/source_conflicts.md#1-agentic-cinema-deadline--unresolved",
+            "confidence": 0.8,
+            "scope": {
+              "kind": "whole_competition",
+              "identifier": null
+            },
+            "supersedes_claim_ids": [],
+            "uncertainty": "The retained research did not establish a controlling dated amendment."
+          },
+          {
+            "claim_id": "agentic-cinema.deadline.organizer-post",
+            "field_path": "/deadline",
+            "value": "2026-09-07",
+            "normalized_value": "2026-09-07",
+            "source_url": "https://www.linkedin.com/posts/googledevelopers_introducing-agentic-cinema-the-blockbuster-activity-7488579154733588480-fNse",
+            "source_type": "official_organizer_post",
+            "source_title": "Google Developers announcement",
+            "authority_class": "official_primary",
+            "observed_at": "2026-08-27T00:00:00Z",
+            "source_published_at": null,
+            "source_updated_at": null,
+            "evidence_text": "Google Developers organizer post stated September 7.",
+            "evidence_locator": "research/competition_landscape/source_conflicts.md#1-agentic-cinema-deadline--unresolved",
+            "confidence": 0.8,
+            "scope": {
+              "kind": "whole_competition",
+              "identifier": null
+            },
+            "supersedes_claim_ids": [],
+            "uncertainty": "The post may be abbreviated, stale, or differently normalized."
+          }
+        ],
+        "resolved_fields": []
+      }
+    },
+    "gibc_v2_deadline": {
+      "expected_status": "unresolved_conflict",
+      "competition_intelligence": {
+        "schema_version": "1.0",
+        "competition_id": "gibc-v2",
+        "competition_record_version": null,
+        "claims": [
+          {
+            "claim_id": "gibc-v2.deadline.platform",
+            "field_path": "/deadline",
+            "value": "2026-09-21 23:45 CST",
+            "normalized_value": "2026-09-21T23:45:00[CST]",
+            "source_url": "https://gibc-v2.devpost.com/",
+            "source_type": "competition_platform",
+            "source_title": "GIBC V2 Devpost",
+            "authority_class": "organizer_controlled_platform",
+            "observed_at": "2026-08-27T00:00:00Z",
+            "source_published_at": null,
+            "source_updated_at": null,
+            "evidence_text": "Devpost states September 21 at 11:45 PM CST.",
+            "evidence_locator": "research/competition_landscape/source_conflicts.md#2-gibc-v2-deadline-time--unresolved",
+            "confidence": 0.9,
+            "scope": {
+              "kind": "whole_competition",
+              "identifier": null
+            },
+            "supersedes_claim_ids": [],
+            "uncertainty": "CST may itself require timezone clarification."
+          },
+          {
+            "claim_id": "gibc-v2.deadline.organizer-page",
+            "field_path": "/deadline",
+            "value": "2026-09-21 23:59 local",
+            "normalized_value": "2026-09-21T23:59:00[local]",
+            "source_url": "https://gibc-9eb4d.web.app/competition-landing.html",
+            "source_type": "official_competition_page",
+            "source_title": "GIBC V2 organizer landing page",
+            "authority_class": "official_primary",
+            "observed_at": "2026-08-27T00:00:00Z",
+            "source_published_at": null,
+            "source_updated_at": null,
+            "evidence_text": "Organizer landing page displays September 21 at 11:59 PM.",
+            "evidence_locator": "research/competition_landscape/source_conflicts.md#2-gibc-v2-deadline-time--unresolved",
+            "confidence": 0.9,
+            "scope": {
+              "kind": "whole_competition",
+              "identifier": null
+            },
+            "supersedes_claim_ids": [],
+            "uncertainty": "The displayed time has no retained controlling amendment."
+          }
+        ],
+        "resolved_fields": []
+      }
+    },
+    "proof_of_possible_prize": {
+      "expected_status": "unresolved_conflict",
+      "competition_intelligence": {
+        "schema_version": "1.0",
+        "competition_id": "proof-of-possible",
+        "competition_record_version": null,
+        "claims": [
+          {
+            "claim_id": "proof-of-possible.prize.cash-tier",
+            "field_path": "/prize_package/cash",
+            "value": {
+              "cash_amount": 10000,
+              "currency": "USD"
+            },
+            "normalized_value": {
+              "cash_amount": 10000,
+              "currency": "USD"
+            },
+            "source_url": "https://proof-of-possible-2026.devpost.com/",
+            "source_type": "competition_platform",
+            "source_title": "Proof of Possible 2026",
+            "authority_class": "organizer_controlled_platform",
+            "observed_at": "2026-08-27T00:00:00Z",
+            "source_published_at": null,
+            "source_updated_at": null,
+            "evidence_text": "The page header and prize tiers show USD 10,000 cash.",
+            "evidence_locator": "research/competition_landscape/source_conflicts.md#3-proof-of-possible-prize--unresolved-internal-contradiction",
+            "confidence": 0.9,
+            "scope": {
+              "kind": "whole_competition",
+              "identifier": null
+            },
+            "supersedes_claim_ids": [],
+            "uncertainty": "The same page contains contradictory overview prose."
+          },
+          {
+            "claim_id": "proof-of-possible.prize.no-cash",
+            "field_path": "/prize_package/cash",
+            "value": {
+              "cash_prizes": false
+            },
+            "normalized_value": {
+              "cash_prizes": false
+            },
+            "source_url": "https://proof-of-possible-2026.devpost.com/",
+            "source_type": "competition_platform",
+            "source_title": "Proof of Possible 2026",
+            "authority_class": "organizer_controlled_platform",
+            "observed_at": "2026-08-27T00:00:00Z",
+            "source_published_at": null,
+            "source_updated_at": null,
+            "evidence_text": "The overview prose says there are no cash prizes.",
+            "evidence_locator": "research/competition_landscape/source_conflicts.md#3-proof-of-possible-prize--unresolved-internal-contradiction",
+            "confidence": 0.9,
+            "scope": {
+              "kind": "whole_competition",
+              "identifier": null
+            },
+            "supersedes_claim_ids": [],
+            "uncertainty": "The same page contains contradictory cash prize tiers."
+          }
+        ],
+        "resolved_fields": []
+      }
+    },
+    "slingshot_deadline_extension": {
+      "expected_status": "resolved",
+      "competition_intelligence": {
+        "schema_version": "1.0",
+        "competition_id": "slingshot-2026",
+        "competition_record_version": null,
+        "claims": [
+          {
+            "claim_id": "slingshot.deadline.original",
+            "field_path": "/deadline",
+            "value": "2026-06-30",
+            "normalized_value": "2026-06-30",
+            "source_url": "https://www.mti.gov.sg/newsroom/opening-remarks-by-minister-of-state-for-trade-and-industry-alvin-tan-at-startups-converge-2026/",
+            "source_type": "official_organizer_post",
+            "source_title": "Singapore Ministry of Trade and Industry remarks",
+            "authority_class": "official_primary",
+            "observed_at": "2026-08-27T00:00:00Z",
+            "source_published_at": null,
+            "source_updated_at": null,
+            "evidence_text": "Earlier official government remarks said June 30.",
+            "evidence_locator": "research/competition_landscape/source_conflicts.md#4-slingshot-deadline--resolved-as-superseded",
+            "confidence": 0.9,
+            "scope": {
+              "kind": "whole_competition",
+              "identifier": null
+            },
+            "supersedes_claim_ids": [],
+            "uncertainty": null
+          },
+          {
+            "claim_id": "slingshot.deadline.extension",
+            "field_path": "/deadline",
+            "value": "2026-07-27",
+            "normalized_value": "2026-07-27",
+            "source_url": "https://www.sginnovate.com/event/slingshot-2026",
+            "source_type": "official_amendment",
+            "source_title": "SLINGSHOT 2026 deadline extension notice",
+            "authority_class": "official_delegated",
+            "observed_at": "2026-08-27T00:00:00Z",
+            "source_published_at": null,
+            "source_updated_at": null,
+            "evidence_text": "Later organizer ecosystem notice explicitly extended the deadline to July 27.",
+            "evidence_locator": "research/competition_landscape/source_conflicts.md#4-slingshot-deadline--resolved-as-superseded",
+            "confidence": 0.95,
+            "scope": {
+              "kind": "whole_competition",
+              "identifier": null
+            },
+            "supersedes_claim_ids": [
+              "slingshot.deadline.original"
+            ],
+            "uncertainty": null
+          }
+        ],
+        "resolved_fields": []
+      }
+    }
+  }
+}
