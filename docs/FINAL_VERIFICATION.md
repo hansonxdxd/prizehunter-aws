@@ -65,3 +65,15 @@ Five captures are actual 1280×720 PNG files and were visually reviewed. The bro
 GitHub API confirmed the repository is public, main is its default branch and its detected license is MIT. This external verification is about publication, not AWS hosting.
 
 Read-only reference before/after comparison passed for both projects: HEAD, Git status, tracked-file hashes and non-Git file metadata were unchanged. The existing Google demo_recordings directory was already present. No new Bedrock attempt was added; the ledger still contains exactly one historical denied request.
+
+## Final published-clone result
+
+Fresh `git clone` resolved to **34722fd8212e2d40ef85d84f005b382bab59dc65**. A new virtual environment was created using `uv sync --frozen --offline --python 3.12` with the dependency-download cache. No application/Core source came from outside the new clone. The pytest/lint/manifest/history commands above were executed there: **90 passed, 1 skipped in 3.30s**, lint passed, 21 pins matched; public scan **82 files / 116 reachable content+commit objects / zero findings**. Application, Core, tests and lockfile did not change in this evidence round.
+
+A temporary server on port 8093 with `PH_WEB_STATE_DIR=local-state/final-validation` was started from that clone and stopped in a finally block. HTTP verification submitted the exact demo-taiwan-profile-form.json fixture and compared the returned Goal to goal_from_form(fixture), checked the two-call blocker/skipped inference, blank unknowns, Canada with zero hours and null Fit/Plan, four-call saved example, Watch 1/0/1/0/0 and step-1 reset. All passed. These assertions exercise only local replay and never resolve AWS credentials.
+
+The publication following that checkpoint only records these results and exact provenance. It does not change code, the dataset, screenshots or lockfile. The tested immutable commit is the evidence anchor; the latest docs-only tip is recorded in the internal handoff and can be resolved with `git rev-parse HEAD` after cloning.
+
+## Consistency audit
+
+Reviewed README, Source of Truth, all 24 claims-matrix rows, Devpost copy, runbook, script and captions together: one Agent; 90/1 tests; one historical denied Bedrock request; no successful inference/hosting; custom profile input is real but arbitrary offline Fit is unavailable; Taiwan and Canadian datasets are explicitly separate; Watch changes are controlled and no notification is delivered. Prior work, human confirmation and the unavailable current Path A are disclosed throughout. Older shot-list/Devpost/screenshot entry points now direct readers to the FINAL versions. Local document links, 34-field fixture coverage and the ten handoff documents were checked.

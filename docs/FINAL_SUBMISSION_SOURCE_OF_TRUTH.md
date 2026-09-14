@@ -1,6 +1,6 @@
 # Final submission source of truth
 
-Authoritative factual record for PrizeHunter AWS Edition. Prepared 2026-09-14 UTC. Other final documents derive from this record and the [claims matrix](FINAL_CLAIMS_MATRIX.md). Older milestone reports remain historical evidence. When evidence changes, update this record, the matrix and all affected narration/captions together.
+Authoritative factual record for PrizeHunter AWS Edition. Prepared 2026-09-14 UTC. The exact public evidence checkpoint below is immutable; a subsequent documentation-only commit records the verification and may be the repository tip. This avoids pretending a Git commit can contain its own hash. Other final documents derive from this record and the [claims matrix](FINAL_CLAIMS_MATRIX.md). Older milestone reports remain historical evidence. When evidence changes, update this record, the matrix and all affected narration/captions together.
 
 ## Project identity
 
@@ -11,7 +11,7 @@ Authoritative factual record for PrizeHunter AWS Edition. Prepared 2026-09-14 UT
 | Value proposition | Turn competition rules into an evidence-grounded decision and a plan you can review. |
 | Intended track | Professional Agents — proposed fit for independent builders/makers; HUMAN CONFIRM final selection, not submitted yet |
 | Public repository | https://github.com/hansonxdxd/prizehunter-aws |
-| Exact public evidence checkpoint | `9cc2488c3a30e95ce10f75ddddd44555fc20b824`; previous code tested from `6f2b320696846622edae58c889efd15a0bbcb4ac` |
+| Exact public evidence checkpoint | `34722fd8212e2d40ef85d84f005b382bab59dc65`; fresh clone verified this final evidence package. Application code is unchanged from `6f2b320696846622edae58c889efd15a0bbcb4ac` |
 | Exact internal implementation checkpoint | `e9bbf0f6bdd48e509ec9ddd6df33bcdcb54fc807`; public code equivalent excludes private working history |
 | Core pin | `f269f7f3af4cf61f79771d63bcf3af0acf356955`; 21 original file hashes unchanged |
 | Current demo | Local OFFLINE VERIFIED / CONTROLLED TEST; Path B |
@@ -130,7 +130,7 @@ Source: [sanitized historical attempt](live-status.json). Token-based estimate U
 
 ## Tests / public release
 
-Current suite: **90 passed, 1 skipped**. This round's local run: 1.07 seconds; lint and 21 pins passed. The skipped paid live test has no opt-in in the offline suite; it is not a passed live test. [Final verification](FINAL_VERIFICATION.md) records exact fresh-clone/build/browser/scan results and scope. Public source contains the Core export and uv lockfile; no hidden reference-checkout dependency. Private git history, credentials, raw account/model traces, caches and internal handoffs are excluded via the explicit publication allowlist. Recognizable-secret scans supplement human review, not a guarantee against every possible secret.
+Current suite: **90 passed, 1 skipped**. This round’s local run: 1.07 seconds; fresh GitHub clone of the final package: 3.30 seconds. Lint and 21 pins passed in both. The published clone passed its HTTP demo/reset smoke; its scan covered 82 files and 116 reachable content/commit objects without findings. The skipped paid live test has no opt-in in the offline suite; it is not a passed live test. [Final verification](FINAL_VERIFICATION.md) records exact fresh-clone/build/browser/scan results and scope. Public source contains the Core export and uv lockfile; no hidden reference-checkout dependency. Private git history, credentials, raw account/model traces, caches and internal handoffs are excluded via the explicit publication allowlist. Recognizable-secret scans supplement human review, not a guarantee against every possible secret.
 
 MIT applies to author-owned code in this AWS distribution, including the authorized Core export. Root and package LICENSE files retain the grant; dependencies retain their own licenses and notices. No relicensing of Google/NEXT or third-party web content. Public repo and code are inspectable; no package-registry release or hosted application is claimed.
 
