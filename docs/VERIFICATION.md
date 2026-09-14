@@ -16,6 +16,14 @@ Actual browser checks verified blank → unknown, false/zero preservation, custo
 
 **No AWS requests were made during Profile restoration.** The ledger remains at one historical denied request. The next default is in-region `amazon.nova-lite-v1:0` in `us-east-1`, after an actual account-verification change. Unit tests use mocks to verify the model default and pre-credential retry/cross-region guards; they do not establish AWS availability.
 
+## Published Profile clone verification
+
+A fresh GitHub clone resolved to **`6f2b320696846622edae58c889efd15a0bbcb4ac`**, matching the reviewed public candidate. A new Python 3.12.13 virtual environment was installed with `uv sync --frozen --offline --python 3.12`, using the existing dependency-download cache. There is no reference-checkout dependency. The test/lint/manifest commands above ran from that clone: **90 passed, 1 skipped** (3.67 seconds), lint passed, and all 21 Core hashes matched. The separate public candidate also passed 90/1 (1.24 seconds).
+
+A temporary loopback HTTP server from the fresh clone verified health, Core enum options, custom country/skills/zero hours/false travel inputs, blank unknowns, residence blockers, unavailable arbitrary Fit/Plan, the four-call saved example, HTTP 400 for invalid hours and Watch counts 1, 0, 1, 0, 0. Both application and Core imports resolved inside the fresh clone. The temporary server was stopped afterwards.
+
+The pre-push scan covered **72 allowlisted files and 92 reachable content/commit objects**, with no findings. This subsequent documentation-only checkpoint records those results; application source and lockfile remain the verified versions.
+
 ## Previous release candidate (before Profile restoration)
 
 A separate directory was created using `scripts/export_public.py` and the reviewed allowlist. Its virtual environment was created from scratch. Installation uses the included `packages/core`; neither private reference checkout is required. Network access to PyPI was allowed for build dependencies; a local uv cache accelerated downloads but was not a source-code dependency.
