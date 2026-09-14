@@ -8,7 +8,7 @@ Finding an opportunity is easy. Knowing whether you qualify—and whether it des
 
 ![Verified implementation architecture](docs/architecture.svg)
 
-[Five demo screenshots](docs/SCREENSHOTS.md) · [Testing evidence](docs/VERIFICATION.md) · [Live validation status](docs/LIVE_VALIDATION.md) · [Prior work](docs/PRIOR_WORK.md)
+[Final evidence / source of truth](docs/FINAL_SUBMISSION_SOURCE_OF_TRUTH.md) · [Recording runbook](docs/FINAL_DEMO_RUNBOOK.md) · [Five demo screenshots](docs/FINAL_SCREENSHOT_INDEX.md) · [Testing evidence](docs/VERIFICATION.md) · [Live validation status](docs/LIVE_VALIDATION.md) · [Prior work](docs/PRIOR_WORK.md)
 
 ## What it does
 

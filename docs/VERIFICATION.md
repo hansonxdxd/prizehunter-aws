@@ -1,5 +1,7 @@
 # Verification record — 2026-09-14
 
+Historical milestone record. The current final package is documented in [FINAL_VERIFICATION.md](FINAL_VERIFICATION.md); current screenshots and narration use the FINAL documents.
+
 ## Profile restoration checkpoint
 
 The browser now accepts the user's profile through the existing Core contracts. The restored essentials and expandable participation/Advanced Eligibility form has no second domain schema. **90 passed, 1 skipped** (0.99 seconds) in the working checkout; lint and all 21 pinned Core hashes passed. AWS and Core wheel/source distributions built; archive inspection confirmed licenses, the new profile transport module in AWS packages, and no private caches, state, evidence or handoffs.
